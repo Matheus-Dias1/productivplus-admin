@@ -14,7 +14,6 @@ import path from 'path';
 import { app, BrowserWindow, shell, ipcMain } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
-import customTitlebar from 'custom-electron-titlebar';
 import MenuBuilder from './menu';
 
 export default class AppUpdater {
@@ -145,7 +144,7 @@ ipcMain.handle('maximize', async () => {
   if (WIN) WIN.maximize();
 });
 
-ipcMain.handle('restore', async (event, data) => {
+ipcMain.handle('restore', async () => {
   const WIN = BrowserWindow.getFocusedWindow();
   if (WIN) WIN.restore();
 });
