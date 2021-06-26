@@ -6,9 +6,9 @@
   justify-content: space-between;
   align-items: center;
   -webkit-app-region: drag;
-  position: absolute;
+  /* position: absolute;
   top: 0;
-  right: 0;
+  right: 0; */
 }
 .window-actions{
   height: 100%;
