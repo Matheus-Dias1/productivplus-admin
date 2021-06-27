@@ -8,7 +8,7 @@ const Statistic = (props) => {
       <h2>{props.name}</h2>
       <div className={classes['statistics-card__value']}>
         <h3>{props.value}</h3>
-        <h4>{props.difference}</h4>
+        {!!props.difference && <h4>{props.difference}</h4>}
       </div>
     </Card>
   );

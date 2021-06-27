@@ -83,7 +83,7 @@ const DUMMY_STATISTICS = {
     {
       name: 'aaa',
       value: '2220',
-      difference: '+2%'
+      difference: null
     }
   ],
   year: [

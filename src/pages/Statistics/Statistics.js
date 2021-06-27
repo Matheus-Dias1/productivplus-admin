@@ -9,8 +9,9 @@ const Statistics = () => {
   const [selectedPeriod, setSelectedPeriod] = useState('day');
   const [statistics, setStatistics] = useState([]);
 
-  const fetchStatistics = () => {
+  const fetchStatistics = async () => {
     setLoading(true);
+    await setTimeout(() => {}, 2000);
     //fetching logic
     setStatistics(DUMMY_STATISTICS);
     setLoading(false);
@@ -45,28 +46,36 @@ const Statistics = () => {
   return (
     <div className="content-container">
       <div className="content">
-        <ul className={classes['button-selector-container']}>
-          <li>
-            <button className={btnClasses.day} onClick={onChangePeriod.day}>
-              ÚLTIMO DIA
-            </button>
-          </li>
-          <li>
-            <button className={btnClasses.week} onClick={onChangePeriod.week}>
-              ÚLTIMA SEMANA
-            </button>
-          </li>
-          <li>
-            <button className={btnClasses.month} onClick={onChangePeriod.month}>
-              ÚLTIMO MÊS
-            </button>
-          </li>
-          <li>
-            <button className={btnClasses.year} onClick={onChangePeriod.year}>
-              ÚLTIMO ANO
-            </button>
-          </li>
-        </ul>
+        <div className={classes['statistics-actions']}>
+          <ul className={classes['button-selector-container']}>
+            <li>
+              <button className={btnClasses.day} onClick={onChangePeriod.day}>
+                ÚLTIMO DIA
+              </button>
+            </li>
+            <li>
+              <button className={btnClasses.week} onClick={onChangePeriod.week}>
+                ÚLTIMA SEMANA
+              </button>
+            </li>
+            <li>
+              <button
+                className={btnClasses.month}
+                onClick={onChangePeriod.month}
+              >
+                ÚLTIMO MÊS
+              </button>
+            </li>
+            <li>
+              <button className={btnClasses.year} onClick={onChangePeriod.year}>
+                ÚLTIMO ANO
+              </button>
+            </li>
+          </ul>
+          <button type="button" onClick={fetchStatistics}>
+
+          </button>
+        </div>
         <div className={classes['statistics-container']}>
           {!loading &&
             statistics[selectedPeriod].map((stat, index) => {
