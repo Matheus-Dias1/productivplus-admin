@@ -1,8 +1,10 @@
 import React, { useContext, useState } from 'react';
 import classes from './Login.module.css';
 import AuthContext from '../../context/auth-context';
+import ErrorModal from '../../components/UI/ErrorModal/ErrorModal';
 
 import logo from '../../assets/p+_logo.png';
+import { useHistory } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -10,20 +12,28 @@ const Login = () => {
   const [pass, setPass] = useState('');
   const [passFocused, setPassFocused] = useState(false);
   const [forgotPass, setForgotPass] = useState(false);
+  const [error, setError] = useState('');
 
   const authCtx = useContext(AuthContext);
+  const history = useHistory();
 
   const onLoginHandler = (event) => {
     event.preventDefault();
-    authCtx.login(email, pass);
+    const lgnRespose = authCtx.login(email, pass);
+    if (lgnRespose.status === 'FAILED') setError(lgnRespose.message);
+    else history.push('/statistics');
+  };
+
+  const closeError = () => {
+    setError('');
   };
 
   const toggleEmailFocous = () => {
-    setEmailFocused(state => !state)
+    setEmailFocused((state) => !state);
   };
 
   const togglePassFocous = () => {
-    setPassFocused (state => !state)
+    setPassFocused((state) => !state);
   };
 
   const onEmailChangeHandler = (event) => {
@@ -35,7 +45,7 @@ const Login = () => {
   };
 
   const forgotPassHandler = (event) => {
-    setForgotPass(state => !state);
+    setForgotPass((state) => !state);
   };
   return (
     <>
@@ -48,8 +58,14 @@ const Login = () => {
             <h2>SEJA BEM-VINDO</h2>
             <h2>FAÇA SEU LOGIN</h2>
           </div>
+          {!!error && <ErrorModal message={error} closeError={closeError} />}
+
           <form onSubmit={onLoginHandler}>
-            <div className={`${classes['input-group']} ${emailFocused ? classes['focused'] : ''}`}>
+            <div
+              className={`${classes['input-group']} ${
+                emailFocused ? classes['focused'] : ''
+              }`}
+            >
               <label htmlFor="email">E-MAIL</label>
               <input
                 id="email"
@@ -60,7 +76,11 @@ const Login = () => {
                 onBlur={toggleEmailFocous}
               />
             </div>
-            <div className={`${classes['input-group']} ${passFocused ? classes['focused'] : ''}`}>
+            <div
+              className={`${classes['input-group']} ${
+                passFocused ? classes['focused'] : ''
+              }`}
+            >
               <label htmlFor="pass">SENHA</label>
               <input
                 id="pass"
@@ -73,6 +93,7 @@ const Login = () => {
             </div>
             <div className={classes['login-action']}>
               <button
+                type="button"
                 onClick={forgotPassHandler}
                 className={classes['forgot-pass-button']}
               >

@@ -1,0 +1,35 @@
+.error-area{
+  margin-top: 1rem;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  background-color: #f55549;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-radius: 6px;
+}
+
+.error-area p{
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #ede9d3;
+}
+
+.error-area button{
+  background-color: transparent;
+  border: none;
+  width: auto;
+  outline: none;
+  color: #ede9d3;
+  width: 2rem;
+}
+
+.errorCtrl{
+  width: 10px;
+  height: 10px;
+  fill: #ede9d3;
+}
+
+.closeErrorBtn{
+  height: 0;
+}
