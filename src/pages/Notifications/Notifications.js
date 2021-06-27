@@ -1,8 +1,13 @@
 import React from 'react';
+import classes from './Notifications.module.css'
 
 const Notifications = () => {
   return (
-    <p>Notifications</p>
+    <div className='content-container'>
+      <div className='content'>
+        <h1>NOTIFICAÇÕES</h1>
+      </div>
+    </div>
   );
 }
 

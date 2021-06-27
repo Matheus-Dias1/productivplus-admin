@@ -24,3 +24,17 @@ body{
   flex-direction: column;
 }
 
+.content-container{
+  height: 100%;
+  display: flex;
+}
+
+.content{
+  margin: 0.8rem 1rem;
+  width: 100%;
+}
+
+
+ul {
+  list-style-type: none;
+}

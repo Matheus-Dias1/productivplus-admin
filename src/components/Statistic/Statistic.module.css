@@ -1,0 +1,31 @@
+.statistics-card{
+  width: 27%;
+  flex: 1 0 auto;
+  height: 7rem;
+  margin: 1rem;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  position: relative;
+}
+
+.statistics-card__value{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.statistics-card{
+  color: #EDE9D3;
+}
+.statistics-card h2{
+  font-size: 1rem;
+}
+
+.statistics-card h3{
+  font-size: 2rem;
+  color: #E3AA27;
+}
+
