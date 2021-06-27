@@ -32,6 +32,9 @@ h6 {
   display: inline;
   color: #ede9d3;
   font-size: medium;
+  -webkit-user-select: none;
+  user-select: none;
+
 }
 
 h6 ~ h6 {
