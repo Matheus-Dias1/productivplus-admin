@@ -26,6 +26,27 @@ button.selected {
 .statistics-container{
   margin-top: 1rem;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   flex-direction: row;
+}
+
+.statistics-actions{
+  display: flex;
+  justify-content: space-between;
+}
+
+.statistics-actions ul+button{
+  border: 3px solid #68665F;
+  padding: 0.3rem 0.5rem;
+  border-radius: 6px;
+}
+
+.statistics-actions ul+button svg path{
+  fill: #68665F;
+}
+
+.statistics-actions ul+button svg{
+  width: 1rem;
+  height: 1rem;
 }

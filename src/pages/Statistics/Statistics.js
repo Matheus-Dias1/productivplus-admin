@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import Loader from "react-loader-spinner";
+
 import classes from './Statistics.module.css';
 
 import Statistic from '../../components/Statistic/Statistic';
+
+import ReloadIcon from '../../assets/icons/ReloadIcon';
+
 import DUMMY_STATISTICS from '../../assets/dummy-data/DUMMY_STATISTICS';
+
 
 const Statistics = () => {
   const [loading, setLoading] = useState(true);
@@ -11,10 +17,11 @@ const Statistics = () => {
 
   const fetchStatistics = async () => {
     setLoading(true);
-    await setTimeout(() => {}, 2000);
+    await setTimeout(() => {
+      setStatistics(DUMMY_STATISTICS);
+      setLoading(false);
+    }, 2000);
     //fetching logic
-    setStatistics(DUMMY_STATISTICS);
-    setLoading(false);
   };
 
   useEffect(() => {
@@ -73,7 +80,7 @@ const Statistics = () => {
             </li>
           </ul>
           <button type="button" onClick={fetchStatistics}>
-
+            <ReloadIcon />
           </button>
         </div>
         <div className={classes['statistics-container']}>
@@ -88,6 +95,15 @@ const Statistics = () => {
                 />
               );
             })}
+          {loading && (
+            <Loader
+              style={{marginTop:'2rem', width: '1rem'}}
+              type="Grid"
+              color="#e3aa27"
+              height={'1rem'}
+              width={'1rem'}
+            />
+          )}
         </div>
       </div>
     </div>
