@@ -1,0 +1,50 @@
+.email-card{
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1.2rem;
+}
+
+.centralize{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.email-card h2{
+  text-align: center;
+  color: #ede9d3;
+}
+
+.file-input-label{
+  display: flex;
+  align-items: center;
+  border: 3px solid #68665f;
+  border-radius: 6px;
+  margin-bottom: 0.7rem;
+}
+
+.file-input-label div {
+  display: flex;
+  border-radius: 4px 0 0 4px;
+  background-color: #e3aa27;
+  align-items: center;
+}
+.file-input-label label{
+  display: block;
+  cursor: pointer;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  width: fit-content;
+  color: black;
+  padding: 0.6rem;
+}
+
+.file-input-label p{
+  margin: 0 1rem;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #ede9d3;
+  font-size: 1rem;
+}
