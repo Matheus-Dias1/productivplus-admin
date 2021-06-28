@@ -1,10 +1,10 @@
 import React from 'react';
 import classes from './ErrorModal.module.css';
 
-const ErrorModal = ({color, message, closeError}) => {
-  const color = !!color ? color : '#f55549'
+const ErrorModal = ({ color, message, closeError }) => {
+  const errorColor = !!color ? color : '#f55549';
   return (
-    <div className={classes['error-area']} style={{backgroundColor: color}}>
+    <div className={classes['error-area']} style={{ backgroundColor: errorColor }}>
       <p>{message}</p>
       <div className={classes['test']}>
         <button
