@@ -69,8 +69,8 @@ const Statistics = () => {
               style={{ marginTop: '2rem', width: '1rem' }}
               type="Grid"
               color="#e3aa27"
-              height={'1rem'}
-              width={'1rem'}
+              height={'2.5rem'}
+              width={'2.5rem'}
             />
           )}
         </div>
