@@ -15,12 +15,12 @@ export const AuthContextProvider = (props) => {
 
   const login = useCallback((email, pass) => {
     // logica de login
-    if (email === 'a@a' && pass === '')
+    if (email === '' && pass === '')
       setToken('token_valido');
     else
       return {
         status: 'FAILED',
-        message: 'INVALID CREDENTIALS',
+        message: 'INVALID CREDENTIALS INVALID CREDENTIALS INVALID CREDENTIALS INVALID CREDENTIALS INVALID CREDENTIALS INVALID CREDENTIALS INVALID CREDENTIALS INVALID CREDENTIALS ',
       };
     return {
       status: 'SUCCESS',

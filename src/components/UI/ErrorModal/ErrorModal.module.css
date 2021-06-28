@@ -1,8 +1,7 @@
 .error-area{
-  margin-top: 1rem;
-  padding: 0 1rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
   box-sizing: border-box;
-  background-color: #f55549;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,19 +16,19 @@
 
 .error-area button{
   background-color: transparent;
+  cursor: pointer;
   border: none;
   width: auto;
   outline: none;
   color: #ede9d3;
-  width: 2rem;
+  display: flex;
+  justify-content: center;
 }
 
 .errorCtrl{
-  width: 10px;
-  height: 10px;
+  width: 1rem;
+  height: 1rem;
   fill: #ede9d3;
 }
 
-.closeErrorBtn{
-  height: 0;
-}
+

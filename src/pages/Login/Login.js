@@ -58,13 +58,11 @@ const Login = () => {
             <h2>SEJA BEM-VINDO</h2>
             <h2>FAÇA SEU LOGIN</h2>
           </div>
-          {!!error && <ErrorModal message={error} closeError={closeError} />}
 
           <form onSubmit={onLoginHandler}>
+            {!!error && <ErrorModal message={error} closeError={closeError} />}
             <div
-              className={`${'input-group'} ${
-                emailFocused ? 'focused' : ''
-              }`}
+              className={`${'input-group'} ${emailFocused ? 'focused' : ''}`}
             >
               <label htmlFor="email">E-MAIL</label>
               <input
@@ -76,11 +74,7 @@ const Login = () => {
                 onBlur={toggleEmailFocous}
               />
             </div>
-            <div
-              className={`${'input-group'} ${
-                passFocused ? 'focused' : ''
-              }`}
-            >
+            <div className={`${'input-group'} ${passFocused ? 'focused' : ''}`}>
               <label htmlFor="pass">SENHA</label>
               <input
                 id="pass"
