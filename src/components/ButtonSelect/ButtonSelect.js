@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 import classes from './ButtonSelect.module.css';
 
 const ButtonSelect = (props) => {
-  const { options } = props;
-  const [selected, setSelected] = useState(0);
+  const { options, onOptionChange, defaultValue } = props;
+  const [selected, setSelected] = useState(null);
 
   const btnClasses = options.map((option, index) => {
     if (index === selected) return classes['selected'];
@@ -12,11 +12,15 @@ const ButtonSelect = (props) => {
   });
 
   useEffect(() => {
-    props.onOptionChange(options[0].value);
+    const defaultOption = options.findIndex((op) => op.value === defaultValue);
+    const defaultIndex = defaultOption === -1 ? 0 : defaultOption
+
+    onOptionChange(options[defaultIndex].value);
+    setSelected(defaultIndex);
   }, []);
 
   const optionChangeHandler = (index) => {
-    props.onOptionChange(options[index].value);
+    onOptionChange(options[index].value);
     setSelected(index);
   };
 
@@ -26,6 +30,7 @@ const ButtonSelect = (props) => {
         return (
           <li key={index}>
             <button
+              type="button"
               className={btnClasses[index]}
               onClick={() => optionChangeHandler(index)}
             >

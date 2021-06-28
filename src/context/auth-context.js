@@ -15,7 +15,7 @@ export const AuthContextProvider = (props) => {
 
   const login = useCallback((email, pass) => {
     // logica de login
-    if (email === 'reptarop@gmail.com' && pass === '12345')
+    if (email === 'a@a' && pass === '')
       setToken('token_valido');
     else
       return {

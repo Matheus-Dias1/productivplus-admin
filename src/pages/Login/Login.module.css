@@ -46,24 +46,13 @@
   margin-top: 1rem;
 }
 
-.login-box button {
+
+button.forgot-pass-button{
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 1rem;
   font-weight: bold;
-  height: 2.8rem;
-  width: 100%;
-  border-radius: 6px;
-  background-color: #e3aa27;
-  border: 3px solid #e3aa27;
+  margin-top: 0.3rem;
   cursor: pointer;
-}
-
-.login-box button+button{
-  margin-top: 2rem;
-}
-
-
-button.forgot-pass-button{
   background-color: transparent;
   border: none;
   width: auto;
@@ -72,8 +61,4 @@ button.forgot-pass-button{
 }
 
 
-
-.login-action path{
-  display: inline;
-}
 

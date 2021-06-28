@@ -1,12 +1,18 @@
 .notification-card{
-  width: 80%;
+  width: 60%;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  padding: 1.2rem;
 }
 
 .centralize{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.notification-card h2{
+  text-align: center;
+  color: #ede9d3;
 }

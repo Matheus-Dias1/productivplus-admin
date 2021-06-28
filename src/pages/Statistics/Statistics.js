@@ -22,6 +22,7 @@ const Statistics = () => {
       setLoading(false);
     }, 2000);
     //fetching logic
+    //CLEANUP PF FAZ CLEANUP EU TE IMPLORO
   };
 
   useEffect(() => {
@@ -47,7 +48,7 @@ const Statistics = () => {
             options={selectOptions}
             onOptionChange={onChangePeriod}
           />
-          <button type="button" onClick={fetchStatistics}>
+          <button type="button" onClick={fetchStatistics} className={classes['reload']}>
             <ReloadIcon />
           </button>
         </div>

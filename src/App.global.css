@@ -14,6 +14,7 @@ body{
   font-family: 'Roboto Condensed', sans-serif;
   background-color: #121212;
   height: 100%;
+  color: #68665f;
 
 
 }
@@ -41,7 +42,8 @@ ul {
   list-style-type: none;
 }
 
-.input-group input{
+.input-group input,
+.input-group textarea{
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 1rem;
   box-sizing: border-box;
@@ -56,7 +58,8 @@ ul {
   color: #ede9d3;
 }
 
-.focused input{
+.focused input,
+.focused textarea{
   border-color: #e3aa27;
 }
 
@@ -64,7 +67,7 @@ ul {
   color: #ede9d3;
 }
 
-.login-box .input-group label {
+.input-group label {
   font-weight: bold;
 }
 
@@ -75,3 +78,37 @@ ul {
 button {
   outline: none;
 }
+
+form {
+  margin-top: 1rem;
+}
+
+form button[type=submit]{
+  margin-top: 2rem;
+}
+
+button[type=submit] {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  height: 2.8rem;
+  width: 100%;
+  border-radius: 6px;
+  background-color: #e3aa27;
+  border: 3px solid #e3aa27;
+  cursor: pointer;
+}
+
+.input-group textarea{
+  padding: 0.5rem;
+  resize: none;
+  height: 10rem;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.input-group textarea::-webkit-scrollbar {
+  display: none;
+}
+
+
