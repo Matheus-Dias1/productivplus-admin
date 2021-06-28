@@ -1,15 +1,15 @@
 import React from 'react';
 import classes from './ErrorModal.module.css';
 
-const ErrorModal = (props) => {
-  const color = !!props.color ? props.color : '#f55549'
+const ErrorModal = ({color, message, closeError}) => {
+  const color = !!color ? color : '#f55549'
   return (
     <div className={classes['error-area']} style={{backgroundColor: color}}>
-      <p>{props.message}</p>
+      <p>{message}</p>
       <div className={classes['test']}>
         <button
           type="button"
-          onClick={props.closeError}
+          onClick={closeError}
           className={classes.closeErrorBtn}
         >
           <svg

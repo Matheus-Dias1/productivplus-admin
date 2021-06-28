@@ -71,6 +71,7 @@ const Statistics = () => {
               color="#e3aa27"
               height={'2.5rem'}
               width={'2.5rem'}
+
             />
           )}
         </div>
