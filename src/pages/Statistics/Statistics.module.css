@@ -8,7 +8,7 @@
   margin-left: 0.5rem;
 }
 
-.button-selector-container button{
+.statistics-actions button{
   border: 3px solid #68665F;
   padding: 0.3rem 0.5rem;
   border-radius: 6px;
@@ -16,6 +16,9 @@
   font-weight: 600;
   font-size: 1rem;
   color: #68665F;
+  background: none;
+  cursor: pointer;
+  outline: none;
 }
 
 button.selected {

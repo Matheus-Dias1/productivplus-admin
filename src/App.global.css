@@ -21,11 +21,14 @@ body{
 #root{
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .content-container{
   height: 100%;
   display: flex;
+  vertical-align: bottom;
+
 }
 
 .content{

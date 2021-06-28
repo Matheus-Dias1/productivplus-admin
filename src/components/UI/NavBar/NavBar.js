@@ -50,10 +50,15 @@ const NavBar = ({ children }) => {
               <UsersIcons />
             </NavLink>
           </li>
+          <li>
+            <button
+              className={classes['logout-button']}
+              onClick={logoutHandler}
+            >
+              <SignOutIcon />
+            </button>
+          </li>
         </ul>
-        <button className={classes['logout-button']} onClick={logoutHandler}>
-          <SignOutIcon />
-        </button>
       </nav>
       <div className={classes['content-area']}>{children}</div>
     </div>
