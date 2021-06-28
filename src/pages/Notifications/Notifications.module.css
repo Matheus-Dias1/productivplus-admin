@@ -1,0 +1,12 @@
+.notification-card{
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.centralize{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

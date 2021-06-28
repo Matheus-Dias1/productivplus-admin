@@ -62,8 +62,8 @@ const Login = () => {
 
           <form onSubmit={onLoginHandler}>
             <div
-              className={`${classes['input-group']} ${
-                emailFocused ? classes['focused'] : ''
+              className={`${'input-group'} ${
+                emailFocused ? 'focused' : ''
               }`}
             >
               <label htmlFor="email">E-MAIL</label>
@@ -77,8 +77,8 @@ const Login = () => {
               />
             </div>
             <div
-              className={`${classes['input-group']} ${
-                passFocused ? classes['focused'] : ''
+              className={`${'input-group'} ${
+                passFocused ? 'focused' : ''
               }`}
             >
               <label htmlFor="pass">SENHA</label>

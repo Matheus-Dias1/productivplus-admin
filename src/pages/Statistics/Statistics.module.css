@@ -1,12 +1,5 @@
 
 
-.button-selector-container li{
-  display: inline;
-}
-
-.button-selector-container li+li{
-  margin-left: 0.5rem;
-}
 
 .statistics-actions button{
   border: 3px solid #68665F;
@@ -21,10 +14,7 @@
   outline: none;
 }
 
-button.selected {
-  border-color: #e3aa27;
-  color: #e3aa27;
-}
+
 
 .statistics-container{
   margin-top: 1rem;

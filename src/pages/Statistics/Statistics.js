@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import Loader from "react-loader-spinner";
+import Loader from 'react-loader-spinner';
 
 import classes from './Statistics.module.css';
 
 import Statistic from '../../components/Statistic/Statistic';
+import ButtonSelect from '../../components/ButtonSelect/ButtonSelect';
 
 import ReloadIcon from '../../assets/icons/ReloadIcon';
 
 import DUMMY_STATISTICS from '../../assets/dummy-data/DUMMY_STATISTICS';
 
-
 const Statistics = () => {
   const [loading, setLoading] = useState(true);
-  const [selectedPeriod, setSelectedPeriod] = useState('day');
+  const [selectedPeriod, setSelectedPeriod] = useState('');
   const [statistics, setStatistics] = useState([]);
 
   const fetchStatistics = async () => {
@@ -28,57 +28,25 @@ const Statistics = () => {
     fetchStatistics();
   }, []);
 
-  const btnClasses = {
-    day: selectedPeriod === 'day' ? classes['selected'] : '',
-    week: selectedPeriod === 'week' ? classes['selected'] : '',
-    month: selectedPeriod === 'month' ? classes['selected'] : '',
-    year: selectedPeriod === 'year' ? classes['selected'] : '',
+  const onChangePeriod = (period) => {
+    setSelectedPeriod(period);
   };
 
-  const onChangePeriod = {
-    day: () => {
-      setSelectedPeriod('day');
-    },
-    week: () => {
-      setSelectedPeriod('week');
-    },
-    month: () => {
-      setSelectedPeriod('month');
-    },
-    year: () => {
-      setSelectedPeriod('year');
-    },
-  };
+  const selectOptions = [
+    { name: 'ÚLTIMO DIA', value: 'day' },
+    { name: 'ÚLTIMA SEMANA', value: 'week' },
+    { name: 'ÚLTIMO MÊS', value: 'month' },
+    { name: 'ÚLTIMO ANO', value: 'year' },
+  ];
 
   return (
     <div className="content-container">
       <div className="content">
         <div className={classes['statistics-actions']}>
-          <ul className={classes['button-selector-container']}>
-            <li>
-              <button className={btnClasses.day} onClick={onChangePeriod.day}>
-                ÚLTIMO DIA
-              </button>
-            </li>
-            <li>
-              <button className={btnClasses.week} onClick={onChangePeriod.week}>
-                ÚLTIMA SEMANA
-              </button>
-            </li>
-            <li>
-              <button
-                className={btnClasses.month}
-                onClick={onChangePeriod.month}
-              >
-                ÚLTIMO MÊS
-              </button>
-            </li>
-            <li>
-              <button className={btnClasses.year} onClick={onChangePeriod.year}>
-                ÚLTIMO ANO
-              </button>
-            </li>
-          </ul>
+          <ButtonSelect
+            options={selectOptions}
+            onOptionChange={onChangePeriod}
+          />
           <button type="button" onClick={fetchStatistics}>
             <ReloadIcon />
           </button>
@@ -97,7 +65,7 @@ const Statistics = () => {
             })}
           {loading && (
             <Loader
-              style={{marginTop:'2rem', width: '1rem'}}
+              style={{ marginTop: '2rem', width: '1rem' }}
               type="Grid"
               color="#e3aa27"
               height={'1rem'}

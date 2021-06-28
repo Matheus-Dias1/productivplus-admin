@@ -40,3 +40,38 @@ body{
 ul {
   list-style-type: none;
 }
+
+.input-group input{
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-left: 10px;
+  display: block;
+  width: 100%;
+  background: none;
+  border: 3px solid #68665f;
+  border-radius: 6px;
+  height: 2.8rem;
+  outline: none;
+  color: #ede9d3;
+}
+
+.focused input{
+  border-color: #e3aa27;
+}
+
+.focused label{
+  color: #ede9d3;
+}
+
+.login-box .input-group label {
+  font-weight: bold;
+}
+
+.input-group + .input-group {
+  margin-top: 0.5rem;
+}
+
+button {
+  outline: none;
+}
