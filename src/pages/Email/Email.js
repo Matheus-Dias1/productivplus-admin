@@ -12,6 +12,7 @@ const Email = () => {
   const [sendTo, setSendTo] = useState('');
   const [error, setError] = useState({ type: null, message: null });
 
+
   const btnOptions = [
     { name: 'TODOS OS USUÁRIOS', value: 'all' },
     { name: 'USUÁRIOS PREMIUM', value: 'premium' },
@@ -31,11 +32,11 @@ const Email = () => {
 
   const onHtmlChangeHandler = (event) => {
     setHtml(event.target.files[0]);
-    console.log(event.target.files[0]);
   };
   const onCloseError = () => {
     setError({ type: null, message: null });
   };
+
 
   const sendEmailHandler = (event) => {
     // VALIDAÇÃO DE ENTRADA
@@ -80,13 +81,18 @@ const Email = () => {
 
             <div className={'input-group'}>
               <label htmlFor={'html'}>HTML</label>
-              <div className={classes['file-input-label']}>
+
+              <label
+                className={classes['file-input-label']}
+                htmlFor={'html'}
+              >
                 <div>
                   <label htmlFor={'html'}>SELECIONAR</label>
                 </div>
                 {!!html && <p>{html.name}</p>}
-              </div>
+              </label>
               <input
+                ref={fileRef}
                 type="file"
                 accept=".html"
                 id="html"

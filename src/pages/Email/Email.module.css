@@ -19,16 +19,18 @@
 
 .file-input-label{
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  flex-direction: row-reverse;
   border: 3px solid #68665f;
   border-radius: 6px;
   margin-bottom: 0.7rem;
+  cursor: pointer;
 }
 
 .file-input-label div {
   display: flex;
-  border-radius: 4px 0 0 4px;
-  background-color: #e3aa27;
+  border-left: 3px solid #68665f;
   align-items: center;
 }
 .file-input-label label{
@@ -38,7 +40,7 @@
   font-size: 1rem;
   font-weight: bold;
   width: fit-content;
-  color: black;
+  color: #e3aa27;
   padding: 0.6rem;
 }
 
