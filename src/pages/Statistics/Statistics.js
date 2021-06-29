@@ -48,11 +48,26 @@ const Statistics = () => {
             options={selectOptions}
             onOptionChange={onChangePeriod}
           />
-          <button type="button" onClick={fetchStatistics} className={classes['reload']}>
+          <button
+            type="button"
+            onClick={fetchStatistics}
+            className={classes['reload']}
+          >
             <ReloadIcon />
           </button>
         </div>
-        <div className={classes['statistics-container']}>
+        <div className="loader-box" >
+          {loading && (
+            <Loader
+              style={{ marginTop: '2rem', width: '1rem', alignSelf: 'center' }}
+              type="Grid"
+              color="#e3aa27"
+              height={'2.5rem'}
+              width={'2.5rem'}
+            />
+          )}
+        </div>
+        <div className={classes['flexbox']}>
           {!loading &&
             statistics[selectedPeriod].map((stat, index) => {
               return (
@@ -64,16 +79,6 @@ const Statistics = () => {
                 />
               );
             })}
-          {loading && (
-            <Loader
-              style={{ marginTop: '2rem', width: '1rem' }}
-              type="Grid"
-              color="#e3aa27"
-              height={'2.5rem'}
-              width={'2.5rem'}
-
-            />
-          )}
         </div>
       </div>
     </div>

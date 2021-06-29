@@ -92,7 +92,6 @@ const Email = () => {
                 {!!html && <p>{html.name}</p>}
               </label>
               <input
-                ref={fileRef}
                 type="file"
                 accept=".html"
                 id="html"

@@ -119,3 +119,9 @@ button[type='submit'] {
 .input-group textarea::-webkit-scrollbar {
   display: none;
 }
+
+.loader-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
