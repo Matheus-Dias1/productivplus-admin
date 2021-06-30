@@ -15,6 +15,8 @@
   justify-content: space-between;
 }
 
+
+
 .user-listing-inputs {
   display: flex;
   justify-content: space-between;
@@ -67,5 +69,18 @@
   color: black;
   font-weight: bold;
   font-family: 'Roboto Condensed', sans-serif;
+  animation: slide-up-appear 0.8s ease-out forwards;
   margin: 0.5rem;
+}
+
+@keyframes slide-up-appear {
+  from {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

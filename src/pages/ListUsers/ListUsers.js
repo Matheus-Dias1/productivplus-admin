@@ -17,20 +17,24 @@ const ListUsers = () => {
 
   const [config, dispatchConfig] = useReducer(configReducer, initData);
 
-  useEffect(() => {
-    const fetchUsers = () => {
-      setLoading(true);
+  const fetchUsers = async () => {
+    setLoading(true);
+    setTimeout(() => {
       const response = getUsers(config);
       if (config.page === 1) setUsers(response.users);
       else setUsers((state) => [...state, ...response.users]);
       setTotalPages(response.totalPages);
       setLoading(false);
-    };
+    }, 1000);
+  };
+
+  useEffect(() => {
     fetchUsers();
   }, [config]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
+      setUsers([]);
       dispatchConfig({ type: 'CHANGE_SEARCH', query: searchQuery });
     }, 500);
     return () => {
@@ -48,6 +52,7 @@ const ListUsers = () => {
   ];
 
   const onFilterChange = (value) => {
+    setUsers([]);
     dispatchConfig({ type: 'CHANGE_FILTER', filter: value });
   };
 

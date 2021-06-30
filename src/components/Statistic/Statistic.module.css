@@ -5,6 +5,7 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  animation: slide-up-appear 0.5s ease-out forwards;
   position: relative;
 }
 
@@ -27,4 +28,17 @@
   font-size: 2rem;
   color: #E3AA27;
 }
+
+@keyframes slide-up-appear {
+  from {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 

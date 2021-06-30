@@ -9,6 +9,20 @@
   color: #ede9d3;
   font-family: 'Roboto Condensed', sans-serif;
   margin: 0.5rem;
+  animation: email-appear 0.5s ease-out forwards;
+}
+
+
+@keyframes email-appear {
+  from {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 
