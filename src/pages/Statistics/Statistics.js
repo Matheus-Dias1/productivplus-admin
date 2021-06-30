@@ -56,17 +56,17 @@ const Statistics = () => {
             <ReloadIcon />
           </button>
         </div>
-        <div className="loader-box" >
-          {loading && (
+        {loading && (
+          <div className="loader-box">
             <Loader
-              style={{ marginTop: '2rem', width: '1rem', alignSelf: 'center' }}
+              style={{ marginTop: '2rem', width: '1rem' }}
               type="Grid"
               color="#e3aa27"
               height={'2.5rem'}
               width={'2.5rem'}
             />
-          )}
-        </div>
+          </div>
+        )}
         <div className={classes['flexbox']}>
           {!loading &&
             statistics[selectedPeriod].map((stat, index) => {
