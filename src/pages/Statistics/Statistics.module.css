@@ -26,6 +26,7 @@ button.reload{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  padding-bottom: 3rem;
 }
 
 .flexbox > div {
