@@ -4,6 +4,7 @@ import classes from './Email.module.css';
 import Card from '../../components/UI/Card/Card';
 import ButtonSelect from '../../components/ButtonSelect/ButtonSelect';
 import ErrorModal from '../../components/UI/ErrorModal/ErrorModal';
+import SubmitButton from '../../components/SubmitButton/SubmitButton';
 
 const Email = () => {
   const [title, setTitle] = useState('');
@@ -11,7 +12,7 @@ const Email = () => {
   const [html, setHtml] = useState();
   const [sendTo, setSendTo] = useState('');
   const [error, setError] = useState({ type: null, message: null });
-
+  const [loading, setLoading] = useState(false);
 
   const btnOptions = [
     { name: 'TODOS OS USUÁRIOS', value: 'all' },
@@ -37,20 +38,24 @@ const Email = () => {
     setError({ type: null, message: null });
   };
 
-
   const sendEmailHandler = (event) => {
     // VALIDAÇÃO DE ENTRADA
     event.preventDefault();
-    console.log(title, html, sendTo);
-    if (sendTo === 'all')
-      setError({ type: 'FAIL', message: 'TESTE DE ERRO (SENDO TO ALL)' });
-    else {
-      setError({
-        type: 'SUCCESS',
-        message: 'TESTE DE SUCESSO (SEND TO PREMIUM)',
-      });
-      setTitle('');
-    }
+    // CHECK LOADING STATE
+    setLoading(true);
+    setTimeout(() => {
+      console.log(title, html, sendTo);
+      if (sendTo === 'all')
+        setError({ type: 'FAIL', message: 'TESTE DE ERRO (SENDO TO ALL)' });
+      else {
+        setError({
+          type: 'SUCCESS',
+          message: 'TESTE DE SUCESSO (SEND TO PREMIUM)',
+        });
+        setTitle('');
+      }
+      setLoading(false)
+    }, 1000);
   };
   return (
     <div className="content-container">
@@ -82,10 +87,7 @@ const Email = () => {
             <div className={'input-group'}>
               <label htmlFor={'html'}>HTML</label>
 
-              <label
-                className={classes['file-input-label']}
-                htmlFor={'html'}
-              >
+              <label className={classes['file-input-label']} htmlFor={'html'}>
                 <div>
                   <label htmlFor={'html'}>SELECIONAR</label>
                 </div>
@@ -106,8 +108,7 @@ const Email = () => {
                 onOptionChange={changeSendToHandler}
               />
             </div>
-
-            <button type="submit">ENVIAR E-MAIL</button>
+            <SubmitButton loading={loading}>ENVIAR E-MAIL</SubmitButton>
           </form>
         </Card>
       </div>

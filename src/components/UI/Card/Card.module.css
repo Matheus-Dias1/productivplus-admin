@@ -1,5 +1,18 @@
 .card {
   background-color: #292929;
   border-radius: 6px;
-  padding: 0.5rem;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 1);
+  animation: slide-up-appear 0.5s ease-out forwards;
+}
+
+@keyframes slide-up-appear {
+  from {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

@@ -61,7 +61,7 @@ ul {
   cursor: pointer;
 }
 
-.input-group input[type='file'] button{
+.input-group input[type='file'] button {
   background-color: #e3aa27;
 }
 
@@ -108,6 +108,10 @@ button[type='submit'] {
   cursor: pointer;
 }
 
+form button[data-loading='true'] {
+  cursor: default;
+}
+
 .input-group textarea {
   padding: 0.5rem;
   resize: none;
@@ -120,7 +124,7 @@ button[type='submit'] {
   display: none;
 }
 
-.loader-box{
+.loader-box {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -130,5 +134,3 @@ button[type='submit'] {
 input {
   font-family: inherit;
 }
-
-

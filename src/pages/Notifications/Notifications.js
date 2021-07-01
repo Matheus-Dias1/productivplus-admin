@@ -4,6 +4,7 @@ import classes from './Notifications.module.css';
 import Card from '../../components/UI/Card/Card';
 import ButtonSelect from '../../components/ButtonSelect/ButtonSelect';
 import ErrorModal from '../../components/UI/ErrorModal/ErrorModal';
+import SubmitButton from '../../components/SubmitButton/SubmitButton';
 
 const Notifications = () => {
   const [title, setTitle] = useState('');
@@ -12,6 +13,7 @@ const Notifications = () => {
   const [bodySelected, setBodySelected] = useState(false);
   const [sendTo, setSendTo] = useState('');
   const [error, setError] = useState({ type: null, message: null });
+  const [loading, setLoading] = useState(false);
 
   const btnOptions = [
     { name: 'TODOS OS USUÁRIOS', value: 'all' },
@@ -103,7 +105,7 @@ const Notifications = () => {
               />
             </div>
 
-            <button type="submit">ENVIAR NOTIFICAÇÃO</button>
+            <SubmitButton loading={loading}>ENVIAR NOTIFICAÇÃO</SubmitButton>
           </form>
         </Card>
       </div>

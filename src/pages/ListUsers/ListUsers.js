@@ -70,6 +70,7 @@ const ListUsers = () => {
         />
         <div className={classes['search-user']}>
           <input
+            placeholder="E-MAIL"
             value={searchQuery}
             onChange={onSearchChange}
             type="text"
