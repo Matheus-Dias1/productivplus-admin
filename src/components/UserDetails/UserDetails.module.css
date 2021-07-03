@@ -26,6 +26,11 @@
   display: inline;
 }
 
+.group svg path{
+  fill: #ede9d3;
+}
+
+
 .group p {
   display: inline;
   margin-left: 0.4rem;

@@ -7,7 +7,6 @@ import EnvelopeIcon from '../../assets/icons/EnvelopeIcon'
 import UserIcon from '../../assets/icons/UserIcon'
 
 const UserDetails = ({ user, onClose }) => {
-  console.log('oiieee');
   return (
     <>
       <Modal show={!!user.id} onClose={onClose}>

@@ -71,7 +71,6 @@ const ListUsers = () => {
   };
 
   const showUser = (user) => {
-    console.log('oi')
     setUserDetails({
       id: user.id,
       name: user.name,

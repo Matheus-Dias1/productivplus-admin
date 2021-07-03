@@ -38,12 +38,12 @@
 
 }
 
-.nav-bar-container svg path {
+.nav-bar svg path {
   fill: #ede9d3;
   transition: fill  0.2s;
 }
 
-.nav-bar-container svg:hover path {
+.nav-bar svg:hover path {
   fill: #e3aa27;
 }
 
