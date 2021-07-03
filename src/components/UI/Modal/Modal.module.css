@@ -1,32 +1,51 @@
-.backdrop{
+.backdrop {
   position: absolute;
   right: 0;
   top: 0;
   width: 100%;
   height: 100%;
+  cursor: pointer;
   background-color: rgb(0, 0, 0, 0.7);
   z-index: 2;
-
+  animation: fade-in 0.3s ease-in;
 }
 
-.modal{
+@keyframes fade-in {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+.modal {
   border-radius: 5px;
   width: 50%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   position: absolute;
-  overflow: auto;
+  overflow: hidden;
   background-color: #292929;
   z-index: 3;
+  animation: fadein 0.3s ease-in;
+}
+@keyframes fadein {
+  from {
+    width: 10%;
+  }
+  to {
+    width: 50%;
+  }
 }
 
-.modal-content{
+.modal-content {
   padding: 1.5rem;
 }
 
 @media (max-width: 768px) {
-  .modal{
-      width: 100%;
+  .modal {
+    width: 100%;
   }
 }
