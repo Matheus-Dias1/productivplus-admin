@@ -8,12 +8,22 @@ import UserListingButton from '../../components/UserListingButton/UserListingBut
 import ButtonSelect from '../../components/ButtonSelect/ButtonSelect';
 import SearchIcon from '../../assets/icons/SearchIcon';
 import { initData, configReducer } from './userListingReducer';
+import Modal from '../../components/UI/Modal/Modal';
+import UserDetails from '../../components/UserDetails/UserDetails';
+
+const noUser = {
+  id: null,
+  name: null,
+  email: null,
+  premium: null,
+}
 
 const ListUsers = () => {
   const [users, setUsers] = useState([]);
   const [totalPages, setTotalPages] = useState(2);
   const [searchQuery, setSearchQuery] = useState('');
   const [loading, setLoading] = useState(true);
+  const [userDetails, setUserDetails] = useState(noUser);
 
   const [config, dispatchConfig] = useReducer(configReducer, initData);
 
@@ -60,52 +70,69 @@ const ListUsers = () => {
     setSearchQuery(event.target.value);
   };
 
+  const showUser = (user) => {
+    console.log('oi')
+    setUserDetails({
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      premium: user.premium,
+    })
+  };
+
+  const closeDetails = () => {
+    setUserDetails(noUser);
+  }
+
   return (
-    <div className={classes['user-listing-container']}>
-      <div className={classes['user-listing-inputs']}>
-        <ButtonSelect
-          options={btnOptions}
-          onOptionChange={onFilterChange}
-          defaultValue={'all'}
-        />
-        <div className={classes['search-user']}>
-          <input
-            placeholder="E-MAIL"
-            value={searchQuery}
-            onChange={onSearchChange}
-            type="text"
-            spellCheck="false"
+    <>
+      <UserDetails user={userDetails} onClose={closeDetails}/>
+      <div className={classes['user-listing-container']}>
+        <div className={classes['user-listing-inputs']}>
+          <ButtonSelect
+            options={btnOptions}
+            onOptionChange={onFilterChange}
+            defaultValue={'all'}
           />
-          <SearchIcon />
+          <div className={classes['search-user']}>
+            <input
+              placeholder="E-MAIL"
+              value={searchQuery}
+              onChange={onSearchChange}
+              type="text"
+              spellCheck="false"
+            />
+            <SearchIcon />
+          </div>
         </div>
-      </div>
-      <div className={classes['user-list']}>
-        {users.map((user, index) => (
-          <UserListingButton user={user} key={index} />
-        ))}
-      </div>
-      {totalPages > config.page && !loading && (
-        <button
-          className={classes['button-load-more']}
-          type="button"
-          onClick={loadNextPage}
-        >
-          CARREGAR MAIS
-        </button>
-      )}
-      {loading && (
-        <div className={`loader-box`}>
-          <Loader
-            style={{ marginTop: '1rem', width: '1rem' }}
-            type="Grid"
-            color="#e3aa27"
-            height={'2.5rem'}
-            width={'2.5rem'}
-          />
+        <div className={classes['user-list']}>
+          {users.map((user, index) => (
+            <UserListingButton user={user} key={index} onUserClick={showUser} />
+          ))}
         </div>
-      )}
-      {!loading && !users.length && <p>NENHUM USUÁRIO ENCONTRADO</p>}
-    </div>
+        {totalPages > config.page && !loading && (
+          <button
+            className={classes['button-load-more']}
+            type="button"
+            onClick={loadNextPage}
+          >
+            CARREGAR MAIS
+          </button>
+        )}
+        {loading && (
+          <div className={`loader-box`}>
+            <Loader
+              style={{ marginTop: '1rem', width: '1rem' }}
+              type="Grid"
+              color="#e3aa27"
+              height={'2.5rem'}
+              width={'2.5rem'}
+            />
+          </div>
+        )}
+        {!loading && !users.length && <p>NENHUM USUÁRIO ENCONTRADO</p>}
+      </div>
+    </>
   );
 };
 
