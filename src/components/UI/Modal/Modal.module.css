@@ -20,14 +20,12 @@
 }
 
 .modal {
-  border-radius: 5px;
   width: 50%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   position: absolute;
   overflow: hidden;
-  background-color: #292929;
   z-index: 3;
   animation: fadein 0.3s ease-in;
 }
