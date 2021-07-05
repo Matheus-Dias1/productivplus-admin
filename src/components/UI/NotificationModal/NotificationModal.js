@@ -1,16 +1,25 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import classes from './NotificationModal.module.css';
 
 import NotificationContext from '../../../context/notification-context';
 
 const NotificationModal = () => {
   const notiCtx = useContext(NotificationContext);
+  const [badgeClasses, setBagdeClasses] = useState('')
   const { status, message } = notiCtx.notifications[0]
     ? notiCtx.notifications[0]
     : { status: null, message: null };
 
   const amount = notiCtx.notifications.length;
-  console.log(!notiCtx.notifications, !!notiCtx.notifications);
+
+
+  useEffect(() => {
+    setBagdeClasses(`${classes['notification-badge']} ${classes['bump']}`)
+    setTimeout(() => {
+      setBagdeClasses(classes['notification-badge']);
+    }, 200);
+  }, [notiCtx.notifications.length]);
+
   return (
     <>
       {notiCtx.notifications.length > 0 && (
@@ -43,7 +52,7 @@ const NotificationModal = () => {
             </button>
             {notiCtx.notifications.length > 1 && (
               <div
-                className={classes['notification-badge']}
+                className={badgeClasses}
                 style={{
                   backgroundColor: status === 'FAILED' ? '#d41c1c' : '#088c08',
                 }}

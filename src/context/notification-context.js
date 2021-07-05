@@ -18,13 +18,11 @@ export const NotificationContextProvider = (props) => {
   const [notifications, setNotifications] = useState([{status:'FAILED', message:'INVALID CREDENTIALS INVALID CREDENTIALS INVALID CREDENTIALS INVALID CREDENTIALS INVALID CREDENTIALS INVALID CREDENTIALS INVALID CREDENTIALS INVALID CREDENTIALS'}]);
 
   const clearNotification = useCallback(() => {
-    console.log('clear')
     setNotifications((state) => state.slice(1, state.length));
   }, []);
 
   const addNotification = useCallback((notification) => {
-    console.log('oiii')
-    setNotifications((state) => [...state, notification]);
+    setNotifications((state) => [notification, ...state]);
   }, []);
 
   const initValue = {
