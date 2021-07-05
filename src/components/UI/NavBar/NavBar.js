@@ -12,6 +12,7 @@ import LightbulbIcon from '../../../assets/icons/LightbulbIcon';
 import SignOutIcon from '../../../assets/icons/SignOutIcon';
 import UsersIcons from '../../../assets/icons/UsersIcon';
 
+
 const NavBar = ({ children }) => {
   const authCtx = useContext(AuthContext);
 
@@ -60,7 +61,8 @@ const NavBar = ({ children }) => {
           </li>
         </ul>
       </nav>
-      <div className={classes['content-area']}>{children}</div>
+      <div className={classes['content-area']}>
+        {children}</div>
     </div>
   );
 };

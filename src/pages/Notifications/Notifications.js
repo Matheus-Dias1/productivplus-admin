@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import classes from './Notifications.module.css';
 
 import Card from '../../components/UI/Card/Card';
 import ButtonSelect from '../../components/ButtonSelect/ButtonSelect';
-import ErrorModal from '../../components/UI/ErrorModal/ErrorModal';
+import NotificationModal from '../../components/UI/NotificationModal/NotificationModal';
 import SubmitButton from '../../components/SubmitButton/SubmitButton';
+import NotificationContext from '../../context/notification-context';
 
 const Notifications = () => {
   const [title, setTitle] = useState('');
@@ -12,14 +13,14 @@ const Notifications = () => {
   const [body, setBody] = useState('');
   const [bodySelected, setBodySelected] = useState(false);
   const [sendTo, setSendTo] = useState('');
-  const [error, setError] = useState({ type: null, message: null });
   const [loading, setLoading] = useState(false);
+
+  const notiCtx = useContext(NotificationContext);
 
   const btnOptions = [
     { name: 'TODOS OS USUÁRIOS', value: 'all' },
     { name: 'USUÁRIOS PREMIUM', value: 'premium' },
   ];
-  const errorColor = error.type === 'SUCCESS' ? '#2abd06' : null;
   const changeTitleHandler = (event) => {
     setTitle(event.target.value);
   };
@@ -40,18 +41,17 @@ const Notifications = () => {
     setBodySelected((state) => !state);
   };
 
-  const onCloseError = () => {
-    setError({ type: null, message: null });
-  };
-
   const sendNotificationHandler = (event) => {
     event.preventDefault();
     console.log(title, body, sendTo);
     if (sendTo === 'all')
-      setError({ type: 'FAIL', message: 'TESTE DE ERRO (SENDO TO ALL)' });
+      notiCtx.addNotification({
+        status: 'FAILED',
+        message: 'TESTE DE ERRO (SENDO TO ALL)',
+      });
     else {
-      setError({
-        type: 'SUCCESS',
+      notiCtx.addNotification({
+        status: 'SUCCESS',
         message: 'TESTE DE SUCESSO (SEND TO PREMIUM)',
       });
       setTitle('');
@@ -64,13 +64,6 @@ const Notifications = () => {
         <Card className={classes['notification-card']}>
           <h2>COMPONHA A NOTIFICAÇÃO</h2>
           <form onSubmit={sendNotificationHandler}>
-            {!!error.type && (
-              <ErrorModal
-                closeError={onCloseError}
-                message={error.message}
-                color={errorColor}
-              />
-            )}
             <div
               className={`${'input-group'} ${titleSelected ? 'focused' : ''}`}
             >

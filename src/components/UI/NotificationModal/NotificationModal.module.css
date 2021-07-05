@@ -1,0 +1,81 @@
+.error-area {
+  position: absolute;
+  right: 1rem;
+  top: 3rem;
+  display: flex;
+  width: 20rem;
+  border-radius: 6px;
+  background-color: #292929;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 1);
+  z-index: 2;
+  height: 6rem;
+  overflow: hidden;
+  animation: bump 200ms ease-out;
+}
+
+
+@keyframes bump {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.error-area button {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  width: auto;
+  outline: none;
+  color: #ede9d3;
+  display: flex;
+  justify-content: center;
+}
+
+.errorCtrl {
+  width: 0.7rem;
+  height: 0.7rem;
+  fill: #68665f;
+}
+
+.status-indicator {
+  width: 1.3srem;
+  height: 100%;
+  border-radius: 6px 0 0 6px;
+}
+
+.error-content {
+  padding: 0.5rem;
+  width: 100%;
+  overflow: scroll;
+}
+
+.error-content::-webkit-scrollbar {
+  display: none;
+}
+
+.error-actions {
+  margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+  width: 1.4rem;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.notification-badge{
+  border-radius: 1.2rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notification-badge p {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #ede9d3;
+}

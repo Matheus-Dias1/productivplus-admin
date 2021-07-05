@@ -12,6 +12,7 @@ import Notifications from './pages/Notifications/Notifications';
 import Email from './pages/Email/Email';
 import Sugestions from './pages/Sugestions/Sugestions';
 import ListUsers from './pages/ListUsers/ListUsers';
+import NotificationModal from './components/UI/NotificationModal/NotificationModal';
 
 export default function App() {
   const authCtx = useContext(AuthContext);
@@ -20,6 +21,7 @@ export default function App() {
     <>
       <Menu />
       <Container>
+        <NotificationModal/>
         <Router>
           <Switch>
             {authCtx.isLoggedIn &&  <NavBar>

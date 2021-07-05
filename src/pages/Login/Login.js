@@ -1,10 +1,12 @@
 import React, { useContext, useState } from 'react';
 import classes from './Login.module.css';
 import AuthContext from '../../context/auth-context';
-import ErrorModal from '../../components/UI/ErrorModal/ErrorModal';
+import NotificationModal from '../../components/UI/NotificationModal/NotificationModal';
 
 import logo from '../../assets/p+_logo.png';
 import { useHistory } from 'react-router-dom';
+
+import NotificationContext from '../../context/notification-context';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -12,20 +14,20 @@ const Login = () => {
   const [pass, setPass] = useState('');
   const [passFocused, setPassFocused] = useState(false);
   const [forgotPass, setForgotPass] = useState(false);
-  const [error, setError] = useState('');
 
   const authCtx = useContext(AuthContext);
+  const notiCtx = useContext(NotificationContext);
   const history = useHistory();
 
   const onLoginHandler = (event) => {
     event.preventDefault();
     const lgnRespose = authCtx.login(email, pass);
-    if (lgnRespose.status === 'FAILED') setError(lgnRespose.message);
+    if (lgnRespose.status === 'FAILED')
+      notiCtx.addNotification({
+        status: 'FAILED',
+        message: lgnRespose.message,
+      });
     else history.push('/statistics');
-  };
-
-  const closeError = () => {
-    setError('');
   };
 
   const toggleEmailFocous = () => {
@@ -60,7 +62,6 @@ const Login = () => {
           </div>
 
           <form onSubmit={onLoginHandler}>
-            {!!error && <ErrorModal message={error} closeError={closeError} />}
             <div
               className={`${'input-group'} ${emailFocused ? 'focused' : ''}`}
             >
