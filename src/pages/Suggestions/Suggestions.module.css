@@ -9,6 +9,8 @@
 }
 
 .description-actions {
+  padding: 0 0.3rem;
+
   display: flex;
   justify-content: space-between;
 }
@@ -35,20 +37,33 @@
 .category-description {
   padding: 1rem;
   text-align: justify;
-
 }
 
 .category-description p::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.category-description p::-webkit-scrollbar-thumb {
+  background: #ede9d3;
+  border-radius: 10px;
+}
+.category-description p::-webkit-scrollbar-thumb:hover {
+  display: none;
+}
+.category-description p::-webkit-scrollbar-track {
   display: none;
 }
 
+.category-description p::-webkit-scrollbar-corner {
+  background: rgba(0,0,0,0);
+}
 
 .category-description p {
   margin-top: 0.5rem;
   height: 5rem;
   overflow: scroll;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  padding: 0 0.3rem;
 }
 
 .expending-editable {
@@ -64,44 +79,43 @@
   background-color: #292929;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 1);
 }
-.editor-content{
+.editor-content {
   padding: 0 1rem;
 }
 
-.suggestions-info{
+.suggestions-info {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
-.amount-card{
+.amount-card {
   width: 49%;
   min-height: 8.7rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
 
-.amount-card p{
+.amount-card p {
   font-size: 3rem;
   color: #e3aa27;
 }
 
-.amount-card p+p{
+.amount-card p + p {
   font-size: 1.5rem;
   color: #ede9d3;
 }
 
-.description-editor{
+.description-editor {
   animation: appear 0.2s ease-out;
 }
 
-@keyframes appear{
-  0%{
+@keyframes appear {
+  0% {
     opacity: 0%;
   }
-  100%{
+  100% {
     opacity: 100%;
   }
 }
