@@ -11,7 +11,7 @@ const SubmitButton = ({ loading, children }) => {
           type="ThreeDots"
           color="black"
           height={'0.5rem'}
-          width={'auto'}
+          width={'100%'}
         />
       )}
     </button>
