@@ -5,16 +5,15 @@ import NotificationContext from '../../../context/notification-context';
 
 const NotificationModal = () => {
   const notiCtx = useContext(NotificationContext);
-  const [badgeClasses, setBagdeClasses] = useState('')
+  const [badgeClasses, setBagdeClasses] = useState('');
   const { status, message } = notiCtx.notifications[0]
     ? notiCtx.notifications[0]
     : { status: null, message: null };
 
   const amount = notiCtx.notifications.length;
 
-
   useEffect(() => {
-    setBagdeClasses(`${classes['notification-badge']} ${classes['bump']}`)
+    setBagdeClasses(`${classes['notification-badge']} ${classes['bump']}`);
     setTimeout(() => {
       setBagdeClasses(classes['notification-badge']);
     }, 200);
@@ -32,9 +31,9 @@ const NotificationModal = () => {
           >
             &nbsp;
           </div>
-          <div className={classes['error-content']}>
-            <p>{message}</p>
-          </div>
+            <div className={classes['error-content']}>
+              <p>{message}</p>
+            </div>
           <div className={classes['error-actions']}>
             <button
               type="button"
