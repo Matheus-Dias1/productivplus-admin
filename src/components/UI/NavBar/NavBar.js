@@ -42,7 +42,7 @@ const NavBar = ({ children }) => {
             </NavLink>
           </li>
           <li>
-            <NavLink to={'/sugestions'} activeClassName={classes['active-tab']}>
+            <NavLink to={'/suggestions'} activeClassName={classes['active-tab']}>
               <LightbulbIcon />
             </NavLink>
           </li>

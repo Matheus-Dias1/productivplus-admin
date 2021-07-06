@@ -10,7 +10,7 @@ import Login from './pages/Login/Login';
 import Statistics from './pages/Statistics/Statistics';
 import Notifications from './pages/Notifications/Notifications';
 import Email from './pages/Email/Email';
-import Sugestions from './pages/Sugestions/Sugestions';
+import Suggestions from './pages/Suggestions/Suggestions';
 import ListUsers from './pages/ListUsers/ListUsers';
 import NotificationModal from './components/UI/NotificationModal/NotificationModal';
 
@@ -27,7 +27,7 @@ export default function App() {
             {authCtx.isLoggedIn &&  <NavBar>
               <Route path="/statistics" component={Statistics} />
               <Route path="/email" component={Email} />
-              <Route path="/sugestions" component={Sugestions} />
+              <Route path="/Suggestions" component={Suggestions} />
               <Route path="/users" component={ListUsers} />
               <Route path="/notifications" component={Notifications} />
 

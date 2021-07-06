@@ -1,8 +1,8 @@
-.button-selector-container li{
+.button-selector-container li {
   display: inline;
 }
 
-.button-selector-container li+li{
+.button-selector-container li + li {
   margin-left: 0.5rem;
 }
 
@@ -11,14 +11,16 @@
   color: #e3aa27;
 }
 
-.button-selector-container button{
-  border: 3px solid #68665F;
+.button-selector-container button {
+  border: 3px solid #68665f;
   padding: 0.3rem 0.5rem;
   border-radius: 6px;
   font-family: 'Roboto Condensed', sans-serif;
+  -webkit-user-select: none;
+  user-select: none;
   font-weight: 600;
   font-size: 1rem;
-  color: #68665F;
+  color: #68665f;
   background: none;
   cursor: pointer;
   outline: none;

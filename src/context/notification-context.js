@@ -15,7 +15,7 @@ const NotificationContext = React.createContext({
 
 export const NotificationContextProvider = (props) => {
   const { children } = props;
-  const [notifications, setNotifications] = useState([{status:'FAILED', message:'INVALID CREDENTIALS INVALID CREDENTIALS INVALID CREDENTIALS INVALID CREDENTIALS INVALID CREDENTIALS INVALID CREDENTIALS INVALID CREDENTIALS INVALID CREDENTIALS'}]);
+  const [notifications, setNotifications] = useState([]);
 
   const clearNotification = useCallback(() => {
     setNotifications((state) => state.slice(1, state.length));
