@@ -1,0 +1,23 @@
+.suggestion-card{
+  position: relative;
+  margin-top: 1rem;
+  padding: 0.5rem;
+
+}
+
+.suggestion-card h2{
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: #e3aa27;
+}
+
+
+.suggestion-card p+p{
+  margin-top: 0.3rem;
+}
+
+.media-link{
+  color: #ede9d3;
+  text-decoration: none;
+  font-weight: 600;
+}

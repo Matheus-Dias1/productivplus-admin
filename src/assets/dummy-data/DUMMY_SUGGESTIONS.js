@@ -5,11 +5,13 @@ const DUMMY_SUGGESITIONS = {
       'en-US': 'Fitness',
     },
     description: {
-      'pt-BR': 'Sugestoes de atividade física sei lá bla bla bla Sugestoes de atividade física sei lá bla bla bla Sugestoes de atividade física sei lá bla bla bla Sugestoes de atividade física sei lá bla bla bla Sugestoes de atividade física sei lá bla bla bla Sugestoes de atividade física sei lá bla bla bla Sugestoes de atividade física sei lá bla bla bla Sugestoes de atividade física sei lá bla bla bla Sugestoes de atividade física sei lá bla bla bla Sugestoes de atividade física sei lá bla bla bla Sugestoes de atividade física sei lá bla bla bla Sugestoes de atividade física sei lá bla bla bla Sugestoes de atividade física sei lá bla bla bla Sugestoes de atividade física sei lá bla bla bla Sugestoes de atividade física sei lá bla bla bla Sugestoes de atividade física sei lá bla bla bla Sugestoes de atividade física sei lá bla bla bla Sugestoes de atividade física sei lá bla bla bla',
+      'pt-BR':
+        'Sugestoes de atividade física sei lá bla bla bla Sugestoes de atividade física sei lá bla bla bla Sugestoes de atividade física sei lá bla bla bla Sugestoes de atividade física sei lá bla bla bla Sugestoes de atividade física sei lá bla bla bla Sugestoes de atividade física sei lá bla bla bla Sugestoes de atividade física sei lá bla bla bla Sugestoes de atividade física sei lá bla bla bla Sugestoes de atividade física sei lá bla bla bla Sugestoes de atividade física sei lá bla bla bla Sugestoes de atividade física sei lá bla bla bla Sugestoes de atividade física sei lá bla bla bla Sugestoes de atividade física sei lá bla bla bla Sugestoes de atividade física sei lá bla bla bla Sugestoes de atividade física sei lá bla bla bla Sugestoes de atividade física sei lá bla bla bla Sugestoes de atividade física sei lá bla bla bla Sugestoes de atividade física sei lá bla bla bla',
       'en-US': 'Fitness suggestions bla bla bla',
     },
     suggestions: [
       {
+        media: 'http://youtube.com',
         name: {
           'pt-BR': 'Atividade 1',
           'en-US': 'Activity 1',
@@ -20,6 +22,7 @@ const DUMMY_SUGGESITIONS = {
         },
       },
       {
+        media: 'http://youtube.com',
         name: {
           'pt-BR': 'Atividade 2',
           'en-US': 'Activity 2',
@@ -30,6 +33,7 @@ const DUMMY_SUGGESITIONS = {
         },
       },
       {
+        media: 'http://youtube.com',
         name: {
           'pt-BR': 'Atividade 3',
           'en-US': 'Activity 3',
@@ -52,6 +56,7 @@ const DUMMY_SUGGESITIONS = {
     },
     suggestions: [
       {
+        media: 'http://youtube.com',
         name: {
           'pt-BR': 'Atividade 1',
           'en-US': 'Activity 1',
@@ -62,6 +67,7 @@ const DUMMY_SUGGESITIONS = {
         },
       },
       {
+        media: 'http://youtube.com',
         name: {
           'pt-BR': 'Atividade 2',
           'en-US': 'Activity 2',
@@ -72,6 +78,7 @@ const DUMMY_SUGGESITIONS = {
         },
       },
       {
+        media: 'http://youtube.com',
         name: {
           'pt-BR': 'Atividade 3',
           'en-US': 'Activity 3',
@@ -94,6 +101,7 @@ const DUMMY_SUGGESITIONS = {
     },
     suggestions: [
       {
+        media: 'http://youtube.com',
         name: {
           'pt-BR': 'Atividade 1',
           'en-US': 'Activity 1',
@@ -104,6 +112,7 @@ const DUMMY_SUGGESITIONS = {
         },
       },
       {
+        media: 'http://youtube.com',
         name: {
           'pt-BR': 'Atividade 2',
           'en-US': 'Activity 2',
@@ -114,6 +123,7 @@ const DUMMY_SUGGESITIONS = {
         },
       },
       {
+        media: 'http://youtube.com',
         name: {
           'pt-BR': 'Atividade 3',
           'en-US': 'Activity 3',
@@ -124,6 +134,7 @@ const DUMMY_SUGGESITIONS = {
         },
       },
       {
+        media: 'http://youtube.com',
         name: {
           'pt-BR': 'Atividade 4',
           'en-US': 'Activity 4',
@@ -138,7 +149,6 @@ const DUMMY_SUGGESITIONS = {
 };
 
 const getCategory = (category) => {
-
   if (!'fitness work studies'.includes(category))
     return DUMMY_SUGGESITIONS.fitness;
   return DUMMY_SUGGESITIONS[category];

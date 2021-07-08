@@ -71,7 +71,7 @@
   background-color: #292929;
   border-radius: 6px;
   height: 0;
-  width: 49%;
+  width: 100%;
 }
 
 .expending-editing {
@@ -81,7 +81,11 @@
 }
 .editor-content {
   padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
+
 
 .suggestions-info {
   display: flex;
@@ -89,12 +93,14 @@
   width: 100%;
 }
 .amount-card {
-  width: 49%;
   min-height: 8.7rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  font-weight: 600;
+  margin-right: 1rem;
 }
 
 .amount-card p {
@@ -109,6 +115,7 @@
 
 .description-editor {
   animation: appear 0.2s ease-out;
+  width: 100%;
 }
 
 @keyframes appear {
@@ -119,3 +126,14 @@
     opacity: 100%;
   }
 }
+
+.suggestions-listing{
+  overflow: scroll;
+  padding-bottom: 3rem;
+
+}
+
+.suggestions-listing::-webkit-scrollbar {
+  display: none;
+}
+

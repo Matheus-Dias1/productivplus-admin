@@ -1,9 +1,9 @@
 import React from 'react';
 
 import Loader from 'react-loader-spinner';
-const SubmitButton = ({ loading, children }) => {
+const SubmitButton = ({ loading, children, style={} }) => {
   return (
-    <button type="submit" data-loading={loading} disabled={loading}>
+    <button type="submit" data-loading={loading} disabled={loading} style={style}>
       {!loading ? (
         children
       ) : (

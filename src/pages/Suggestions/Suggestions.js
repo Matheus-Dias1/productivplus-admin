@@ -7,6 +7,7 @@ import Card from '../../components/UI/Card/Card';
 import SubmitButton from '../../components/SubmitButton/SubmitButton';
 
 import getCategory from '../../assets/dummy-data/DUMMY_SUGGESTIONS';
+import Suggestion from '../../components/Suggestion/Suggestion';
 
 const Suggestions = () => {
   const [category, setCategory] = useState('');
@@ -150,7 +151,10 @@ const Suggestions = () => {
                       }}
                       onBlur={() => setTextFieldSelected(false)}
                     />
-                    <SubmitButton loading={loadingUpdateDesc}>
+                    <SubmitButton
+                      loading={loadingUpdateDesc}
+                      style={{ width: 'auto', padding: '0 1rem' }}
+                    >
                       ATUALIZAR
                     </SubmitButton>
                   </div>
@@ -158,7 +162,25 @@ const Suggestions = () => {
               </div>
             )}
           </div>
+        </div>
+      )}
+      {suggestions.hasOwnProperty('name') && (
+        <div className={classes['suggestions-listing']}>
+          {suggestions.suggestions.map((suggestion) => {
+            console.log(suggestion)
+            const media = suggestion.hasOwnProperty('media')
+              ? suggestion.media
+              : null;
 
+              return (
+              <Suggestion
+                key={Math.random() + suggestion.name[language]}
+                name={suggestion.name[language]}
+                description={suggestion.description[language]}
+                media={media}
+              />
+            );
+          })}
         </div>
       )}
     </div>
