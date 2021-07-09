@@ -37,6 +37,7 @@ const Suggestions = () => {
             return (
               <Suggestion
                 key={Math.random() + suggestion.name[language]}
+                onDelete={() => deleteSuggestion(suggestion.name[language])}
                 name={suggestion.name[language]}
                 description={suggestion.description[language]}
                 media={media}
@@ -46,7 +47,7 @@ const Suggestions = () => {
         </div>
       );
     return <></>;
-  }, [suggestions]);
+  }, [suggestions, language]);
 
   useEffect(() => {
     if (!!category) setSuggestions(getCategory(category));
@@ -116,6 +117,20 @@ const Suggestions = () => {
       setShowDescEditor(false);
       setNewDescription('');
     }, 1000);
+  };
+
+  const deleteSuggestion = (name) => {
+    //server requeste
+    //loading status
+
+    //if success :
+    setSuggestions((state) => {
+      let stateCpy = { ...state };
+      stateCpy.suggestions = stateCpy.suggestions.filter(
+        (suggestion) => suggestion.name[language] !== name
+      );
+      return stateCpy
+    });
   };
   return (
     <div className={classes['suggestions-container']}>

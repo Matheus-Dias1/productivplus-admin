@@ -21,3 +21,20 @@
   text-decoration: none;
   font-weight: 600;
 }
+
+.suggestion-card button{
+  background-color: transparent;
+  position: absolute;
+  right: 0.8rem;
+  top: 0.8rem;
+  cursor: pointer;
+}
+
+.suggestion-card svg{
+  width: 1rem;
+  height: 100%;
+}
+
+.suggestion-card path {
+  fill: #ede9d3;
+}
