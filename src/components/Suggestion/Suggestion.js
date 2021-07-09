@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { memo, useEffect } from 'react';
 import Card from '../UI/Card/Card';
 
 import classes from './Suggestion.module.css';
 
 const Suggestion = ({ name, description, media }) => {
+
+  useEffect(()=>{
+    return () => { console.log('unmounting')}
+  },[])
+
   return (
     <Card className={classes['suggestion-card']}>
       <h2>{name}</h2>
@@ -13,4 +18,4 @@ const Suggestion = ({ name, description, media }) => {
   );
 };
 
-export default Suggestion;
+export default memo(Suggestion);

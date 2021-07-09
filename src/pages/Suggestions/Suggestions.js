@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import classes from './Suggestions.module.css';
 
 import ButtonSelect from '../../components/ButtonSelect/ButtonSelect';
@@ -24,6 +24,29 @@ const Suggestions = () => {
   let descriptionClasses = `${classes['expending-editable']} ${
     editingDescription ? classes['expending-editing'] : ''
   }`;
+
+  const memoizedList = useMemo(() => {
+    if (suggestions.hasOwnProperty('suggestions'))
+      return (
+        <div className={classes['suggestions-listing']}>
+          {suggestions.suggestions.map((suggestion) => {
+            const media = suggestion.hasOwnProperty('media')
+              ? suggestion.media
+              : null;
+
+            return (
+              <Suggestion
+                key={Math.random() + suggestion.name[language]}
+                name={suggestion.name[language]}
+                description={suggestion.description[language]}
+                media={media}
+              />
+            );
+          })}
+        </div>
+      );
+    return <></>;
+  }, [suggestions]);
 
   useEffect(() => {
     if (!!category) setSuggestions(getCategory(category));
@@ -68,10 +91,6 @@ const Suggestions = () => {
     setEditingDescription(false);
     setShowDescEditor(false);
     setNewDescription('');
-  };
-
-  const onEditDescriptionHandler = () => {
-    alert('editar descrição');
   };
 
   const onNewDescriptionChangeHandler = (event) => {
@@ -164,25 +183,7 @@ const Suggestions = () => {
           </div>
         </div>
       )}
-      {suggestions.hasOwnProperty('name') && (
-        <div className={classes['suggestions-listing']}>
-          {suggestions.suggestions.map((suggestion) => {
-            console.log(suggestion)
-            const media = suggestion.hasOwnProperty('media')
-              ? suggestion.media
-              : null;
-
-              return (
-              <Suggestion
-                key={Math.random() + suggestion.name[language]}
-                name={suggestion.name[language]}
-                description={suggestion.description[language]}
-                media={media}
-              />
-            );
-          })}
-        </div>
-      )}
+      {memoizedList}
     </div>
   );
 };
