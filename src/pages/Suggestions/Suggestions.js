@@ -8,6 +8,7 @@ import SubmitButton from '../../components/SubmitButton/SubmitButton';
 
 import getCategory from '../../assets/dummy-data/DUMMY_SUGGESTIONS';
 import Suggestion from '../../components/Suggestion/Suggestion';
+import NewSuggestion from '../../components/NewSuggestion/NewSuggestion';
 
 const Suggestions = () => {
   const [category, setCategory] = useState('');
@@ -20,6 +21,7 @@ const Suggestions = () => {
   const [textFieldSelected, setTextFieldSelected] = useState(false);
   const [newDescription, setNewDescription] = useState('');
   const [loadingUpdateDesc, setLoadingUpdateDesc] = useState(false);
+  const [addingSuggestion, setAddingSuggestion] = useState(false);
 
   let descriptionClasses = `${classes['expending-editable']} ${
     editingDescription ? classes['expending-editing'] : ''
@@ -129,11 +131,16 @@ const Suggestions = () => {
       stateCpy.suggestions = stateCpy.suggestions.filter(
         (suggestion) => suggestion.name[language] !== name
       );
-      return stateCpy
+      return stateCpy;
     });
   };
   return (
     <div className={classes['suggestions-container']}>
+      <NewSuggestion
+        onClose={() => setAddingSuggestion(false)}
+        show={addingSuggestion}
+        onSubmit={() => {}}
+      />
       <div className={classes['category-actions']}>
         <ButtonSelect
           options={categoryOptions}
@@ -196,6 +203,17 @@ const Suggestions = () => {
               </div>
             )}
           </div>
+        </div>
+      )}
+      {suggestions.hasOwnProperty('name') && (
+        <div className={classes['add-suggestion']}>
+          <button
+            onClick={() => {
+              setAddingSuggestion(true);
+            }}
+          >
+            NOVA SUGESTÃO
+          </button>
         </div>
       )}
       {memoizedList}

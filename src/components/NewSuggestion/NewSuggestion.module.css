@@ -1,0 +1,11 @@
+
+.new-suggestion-container{
+  width: 100%;
+
+}
+
+.new-suggestion-container h2{
+  text-align: center;
+  color: #ede9d3;
+  font-size: 1.2rem;
+}
