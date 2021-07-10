@@ -154,5 +154,18 @@
   background-color: #e3aa27;
   border: 3px solid #e3aa27;
   cursor: pointer;
+  animation: slide-up-appear 0.5s ease-out forwards;
+}
+
+@keyframes slide-up-appear {
+  from {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 

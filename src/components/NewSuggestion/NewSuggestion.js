@@ -1,7 +1,8 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useState } from 'react';
 import Modal from '../UI/Modal/Modal';
 
 import classes from './NewSuggestion.module.css';
+import SubmitButton from '../SubmitButton/SubmitButton';
 
 const initInput = {
   name: {
@@ -26,13 +27,17 @@ const inputDispatcher = (state, action) => {
 
   if (action.type === 'NAME_CHANGE') {
     newState.name[lang] = action.value;
+    return newState;
   } else if (action.type === 'DESCRIPTION_CHANGE') {
     newState.description[lang] = action.value;
+    return newState;
   } else if (action.type === 'MEDIA_CHANGE') {
     newState.media = action.value;
+    return newState;
   } else if (action.type === 'CHANGE_FOCUS') {
     if (action.focus) newState.focused = action.field;
     else newState.focused = ''; // ON BLUR
+    return newState;
   } else if (action.type === 'NEXT_LANGUAGE') {
     let nextLang;
     let lastLang;
@@ -47,15 +52,45 @@ const inputDispatcher = (state, action) => {
     }
     newState.language.current = nextLang;
     newState.language.last = nextLang === lastLang;
-  } else if (action.type === 'RESET_FORM') return initInput;
-  return newState;
+    return newState;
+  } else if (action.type === 'RESET_FORM') {
+    return {
+      name: {
+        'pt-BR': '',
+        'en-US': '',
+      },
+      description: {
+        'pt-BR': '',
+        'en-US': '',
+      },
+      media: '',
+      focused: '',
+      language: {
+        current: 'pt-BR',
+        last: false,
+      },
+    };
+  }
 };
 
-const NewSuggestion = ({ show, onSubmit, onClose }) => {
+const NewSuggestion = ({ show, onSubmit, onClose, category }) => {
   const [inputData, dispacthInputData] = useReducer(inputDispatcher, initInput);
+  const [loading, setLoading] = useState(false);
+
   const onSubmitHandler = (event) => {
     event.preventDefault();
+
     if (inputData.language.last) {
+      //VALIDAÇÃO
+      setLoading(true);
+      // mandar request de acordo com prop "category"
+      setLoading(false);
+      onSubmit({
+        media: inputData.media,
+        name: inputData.name,
+        description: inputData.description
+      });
+      onCloseModal();
     } else {
       dispacthInputData({ type: 'NEXT_LANGUAGE' });
     }
@@ -142,9 +177,9 @@ const NewSuggestion = ({ show, onSubmit, onClose }) => {
               />
             </div>
             <div>
-              <button type="submit">
+              <SubmitButton loading={loading}>
                 {inputData.language.last ? 'FINALIZAR' : 'PRÓXIMO'}
-              </button>
+              </SubmitButton>
             </div>
           </form>
         </div>

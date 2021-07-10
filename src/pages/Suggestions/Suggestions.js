@@ -134,12 +134,21 @@ const Suggestions = () => {
       return stateCpy;
     });
   };
+
+  const onSubmitNewSuggestion = (addedSuggestion) => {
+    setSuggestions((state) => {
+      let newState = { ...state };
+      newState.suggestions = [addedSuggestion, ...newState.suggestions];
+      return newState;
+    });
+  };
   return (
     <div className={classes['suggestions-container']}>
       <NewSuggestion
         onClose={() => setAddingSuggestion(false)}
         show={addingSuggestion}
-        onSubmit={() => {}}
+        onSubmit={onSubmitNewSuggestion}
+        category={category}
       />
       <div className={classes['category-actions']}>
         <ButtonSelect
