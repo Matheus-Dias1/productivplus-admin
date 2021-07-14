@@ -13,6 +13,7 @@ import Email from './pages/Email/Email';
 import Suggestions from './pages/Suggestions/Suggestions';
 import ListUsers from './pages/ListUsers/ListUsers';
 import NotificationModal from './components/UI/NotificationModal/NotificationModal';
+import Inbox from './pages/Inbox/Inbox';
 
 export default function App() {
   const authCtx = useContext(AuthContext);
@@ -21,18 +22,19 @@ export default function App() {
     <>
       <Menu />
       <Container>
-        <NotificationModal/>
+        <NotificationModal />
         <Router>
           <Switch>
-            {authCtx.isLoggedIn &&  <NavBar>
-              <Route path="/statistics" component={Statistics} />
-              <Route path="/email" component={Email} />
-              <Route path="/Suggestions" component={Suggestions} />
-              <Route path="/users" component={ListUsers} />
-              <Route path="/notifications" component={Notifications} />
-
-
-            </NavBar>}
+            {authCtx.isLoggedIn && (
+              <NavBar>
+                <Route path="/inbox" component={Inbox} />
+                <Route path="/statistics" component={Statistics} />
+                <Route path="/email" component={Email} />
+                <Route path="/Suggestions" component={Suggestions} />
+                <Route path="/users" component={ListUsers} />
+                <Route path="/notifications" component={Notifications} />
+              </NavBar>
+            )}
             {!authCtx.isLoggedIn && <Route path="*" component={Login} />}
           </Switch>
         </Router>

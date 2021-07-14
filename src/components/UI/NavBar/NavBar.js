@@ -11,7 +11,7 @@ import ChartIcon from '../../../assets/icons/ChartIcon';
 import LightbulbIcon from '../../../assets/icons/LightbulbIcon';
 import SignOutIcon from '../../../assets/icons/SignOutIcon';
 import UsersIcons from '../../../assets/icons/UsersIcon';
-
+import InboxIcon from '../../../assets/icons/InboxIcon';
 
 const NavBar = ({ children }) => {
   const authCtx = useContext(AuthContext);
@@ -23,6 +23,11 @@ const NavBar = ({ children }) => {
     <div className={classes['nav-bar-container']}>
       <nav className={classes['nav-bar']}>
         <ul>
+          <li>
+            <NavLink to={'/inbox'} activeClassName={classes['active-tab']}>
+              <InboxIcon />
+            </NavLink>
+          </li>
           <li>
             <NavLink to={'/statistics'} activeClassName={classes['active-tab']}>
               <ChartIcon />
@@ -42,7 +47,10 @@ const NavBar = ({ children }) => {
             </NavLink>
           </li>
           <li>
-            <NavLink to={'/suggestions'} activeClassName={classes['active-tab']}>
+            <NavLink
+              to={'/suggestions'}
+              activeClassName={classes['active-tab']}
+            >
               <LightbulbIcon />
             </NavLink>
           </li>
@@ -61,8 +69,7 @@ const NavBar = ({ children }) => {
           </li>
         </ul>
       </nav>
-      <div className={classes['content-area']}>
-        {children}</div>
+      <div className={classes['content-area']}>{children}</div>
     </div>
   );
 };

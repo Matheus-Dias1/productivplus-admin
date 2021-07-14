@@ -27,7 +27,7 @@ const Login = () => {
         status: 'FAILED',
         message: lgnRespose.message,
       });
-    else history.push('/statistics');
+    else history.push('/inbox');
   };
 
   const toggleEmailFocous = () => {

@@ -1,0 +1,55 @@
+.messages-list div+div{
+  margin-top: 1rem;
+}
+
+.messages-list>p{
+  text-align: center;
+}
+
+.messages-list{
+  padding-bottom: 3rem;
+  height: 100%;
+  overflow: scroll;
+}
+
+.messages-list::-webkit-scrollbar {
+  display: none;
+}
+
+.message-card {
+  padding: 0.8rem;
+  position: relative;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.messages-list h2{
+  color: #e3aa27;
+}
+
+.messages-list p+p{
+  margin-top: 0.8rem;
+}
+
+.messages-list h2+p{
+  color: #ede9d3;
+  cursor: pointer;
+}
+
+.mark-as-read-button{
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.mark-as-read-button svg{
+  width: 1rem;
+  height: 100%;
+}
+
+.mark-as-read-button path{
+  fill: #ede9d3;
+}
